@@ -1,8 +1,8 @@
-var timer = document.getElementById("timer");
-var quizContainer = document.getElementById("quizContainer");
-var listEl = document.getElementById("listEl");
-var startButton = document.getElementById("start-button");
-var rightWrong = document.getElementById("rightWrong");
+var timer = document.querySelector("#timer");
+var quizContainer = document.querySelector("#quizContainer");
+var listEl = document.querySelector("#listEl");
+var startButton = document.querySelector("#startButton");
+var rightWrong = document.querySelector("#rightWrong");
 
 var timeLeft = 101;
 var score = 0;
@@ -28,7 +28,7 @@ var quizQuestions = [
 ];
 
 // timer works, need to connect to start with start button press
-function setTime() {
+startButton.addEventListener("click", function () {
     var timerInterval = setInterval(function () {
         timeLeft--;
         timer.textContent = "Timer: " + timeLeft;
@@ -38,8 +38,10 @@ function setTime() {
             endGame();
         }
     }, 1000);
+
     createQ(qindex);
-}
+});
+
 
 var ulEl = document.createElement("ul")
 
@@ -56,9 +58,9 @@ function createQ(qindex) {
     quizA.forEach(function (createLi) {
         var quizList = document.createElement("li");
         quizList.textContent = createLi;
-        quizContainer.appendChild(ulEL);
+        quizContainer.appendChild(ulEl);
         ulEl.appendChild(quizList);
-        createLi.addEventListener('click', (compare));
+        createLi.addEventListener('click', correctAnswer);
     })
 }
 
@@ -82,7 +84,7 @@ function correctAnswer(event) {
 
     if (qindex >= quizQuestions.length) {
         endGame();
-        newDiv.textContent = "Quiz over. You scored " + score + " points!";
+        newDiv.textContent = "Quiz over. You scored " + score + " questions correct!";
     } else {
         createQ(qindex);
     }
@@ -93,14 +95,23 @@ function endGame() {
     quizContainer.innerHTML = "";
     ulEl.innerHTML = "";
 
+    if (timeLeft >= 0) {
+        var timeRemaining = timeLeft;
+        var paraEl = document.createElement("p");
+        clearInterval(holdInterval);
+        paraEl.textContent = "Your final score is: " + timeRemaining;
+
+        quizContainer.appendChild(paraEl);
+    }
+
     var title = document.getElementById("title");
     title.textContent = "Quiz Over!";
 
-    
+
     var initials = document.createElement("label");
     initials.setAttribute("id", "initials");
     initials.textContent = "Please enter your initials: ";
-    
+
     var inputBox = document.createElement("input");
     inputBox.setAttribute("id", "inputBox");
     inputBox.setAttribute("type", "text");
@@ -116,7 +127,28 @@ function endGame() {
     quizContainer.appendChild(inputBox);
     quizContainer.appendChild(submitBox);
 
-    submitBox.addEventListener('click', function() {
-        
-    })
+    submitBox.addEventListener('click', function () {
+        var scoreInfo = initials.value;
+        if (scoreInfo === null) {
+            console.log("No initials entered");
+        } else {
+            var finalScore = {
+                initial: scoreInfo,
+                score: timeRemaining
+            }
+            console.log(finalScore);
+            var highScores = localStorage.getItem("highScores");
+            if (highScores === null) {
+                highScores = [];
+            } else {
+                highScores = JSON.parse(highScores);
+            }
+            highScores.push(finalScore);
+            var newScore = JSON.stringify(highScores);
+            localStorage.setItem("highscores", newScore);
+
+            window.location.replace("./highscores.html");
+        }
+    });
+
 }

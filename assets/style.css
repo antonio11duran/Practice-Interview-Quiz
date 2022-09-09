@@ -6,7 +6,7 @@ header ul {
     margin: 5px 10px 0 0;
 }
 
-.quizContainer {
+#quizContainer {
     text-align: center;
     margin: 50px;
     padding: 50px;
