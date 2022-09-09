@@ -6,9 +6,13 @@ header ul {
     margin: 5px 10px 0 0;
 }
 
-.container {
+.quizContainer {
     text-align: center;
     margin: 50px;
     padding: 50px;
     border: 10px solid lightblue;
+}
+
+li {
+    list-style-type: none;
 }
