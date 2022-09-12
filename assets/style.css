@@ -6,13 +6,26 @@ header ul {
     margin: 5px 10px 0 0;
 }
 
+#timer {
+    list-style-type: none;
+    background-color: lightblue;
+}
+
 #quizContainer {
     text-align: center;
-    margin: 50px;
-    padding: 50px;
+    margin: 100px;
+    padding: 100px;
     border: 10px solid lightblue;
 }
 
-li {
-    list-style-type: none;
+#quizContainer li {
+    list-style-type: decimal;
+    list-style-position: inside;
+    text-align: left;
+    line-height: 1.2em;
+    background-color: lightblue;
+}
+
+#quizContainer li:not(:first-of-type) {
+    margin-top: 1.0em;
 }
