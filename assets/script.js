@@ -9,7 +9,7 @@ var timeLeft = 101;
 var score = 0;
 var timerInterval = 0;
 var qindex = 0;
-var penalty = 5;
+var penalty = 10;
 
 var quizQuestions = [
     {
