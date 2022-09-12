@@ -13,19 +13,34 @@ var penalty = 5;
 
 var quizQuestions = [
     {
-        question: "Answer is a",
-        answers: ["a", "b", "c", "d"],
-        correct: "a"
+        question: "What is Javascript?",
+        answers: ["JavaScript is a scripting language used to make the website interactive", "JavaScript is an assembly language used to make the website interactive", "JavaScript is a compiled language used to make the website interactive", "None of the mentioned"],
+        correct: "JavaScript is a scripting language used to make the website interactive"
     },
     {
-        question: "Answer is b",
-        answers: ["a", "b", "c", "d"],
-        correct: "b"
+        question: "Arrays in JavaScript are defined by which of the following statements?",
+        answers: ["It is an ordered list of values", "It is an ordered list of objects", "It is an ordered list of string", "It is an ordered list of functions"],
+        correct: "It is an ordered list of values"
     },
     {
-        question: "Answer is c",
-        answers: ["a", "b", "c", "d"],
-        correct: "c"
+        question: "Which of these best describes an array?",
+        answers: ["A data structure that shows a hierarchical behavior", "Container of objects of similar types", "Arrays are immutable once initialised", "Array is not a data structure"],
+        correct: "Container of objects of similar types"
+    },
+    {
+        question: "Which of the following is the correct way to declare a multidimensional array in Java?",
+        answers: ["int[] arr;", "int arr[[]];", "int[][]arr;", "int[[]] arr;"],
+        correct: "int[][]arr;"
+    },
+    {
+        question: "What are the advantages of arrays?",
+        answers: ["Objects of mixed data types can be stored", "Elements in an array cannot be sorted", "Index of first element of an array is 1", "Easier to store elements of same data type"],
+        correct: "Easier to store elements of same data type"
+    },
+    {
+        question: "What are the disadvantages of arrays?",
+        answers: ["Data structure like queue or stack cannot be implemented", "There are chances of wastage of memory space if elements inserted in an array are lesser than the allocated size", "Index value of an array can be negative", "Elements are sequentially accessed"],
+        correct: "There are chances of wastage of memory space if elements inserted in an array are lesser than the allocated size"
     }
 ];
 
