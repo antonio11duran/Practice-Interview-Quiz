@@ -29,4 +29,4 @@ If you submit, the highscores board will be displayed, including your most recen
 
 ![screenshot of highscores page](./assets/images/highscores.png)
 
-deployed product: https://antonio11duran.github.io/Practice-Interview-Quiz/
+deployed product: <https://antonio11duran.github.io/Practice-Interview-Quiz/>
